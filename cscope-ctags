@@ -1,0 +1,9 @@
+#!/bin/sh 
+
+rm -rf cscope.* 
+rm -rf tags
+ 
+find . -path './out*' -a -prune -o -name "*.h" -o -name "*.c" -o -name "*.cc" -o -name "*.cpp" -o -name "*.java" -o -name "*.xml" -o -name "*.aidl" > cscope.files
+cscope  -bkq -i cscope.files
+#ctags  -R  --links=no
+ctags --exclude=out -R --c++-kinds=+p --c-kinds=+lpx --java-kinds=+l --fields=+iaS --extra=+q --links=no
