@@ -1,36 +1,25 @@
-"显示行号      
-"set number "或者set  nu
 map <F7> <Esc>:set nu<CR>
 map <C-F7> <Esc>:set nonu<CR>
 
 filetype indent on
 syntax on
 colorscheme default
-"colorscheme desert
-"colorscheme delek
 
 set hlsearch
 set incsearch
 set nu
 set ruler
 set history=1000
-
 set autoindent
-"set cindent
-
+set cindent
+set cinoptions={0,:0,g0,l1,t0,(0)}
 set autoread     
-
-"set shiftwidth=4
-set ignorecase
+"set ignorecase
 set showcmd
 
 set tags=./tags;
 
 source $VIMRUNTIME/ftplugin/man.vim
-
-map <F3> :Tlist<CR>  "按下F3就可以呼出了
-let Tlist_Show_One_File = 1 "不同时显示多个文件的tag，只显示当前文件的  
-let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim  
 
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk
@@ -86,7 +75,7 @@ let Powerline_symbols='compatible'
 
 set formatoptions=tcqro
 
-nmap <F8> :TagbarToggle<CR>
+nmap <F3> :TagbarToggle<CR>
 let g:neocomplete#enable_at_startup = 1
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
