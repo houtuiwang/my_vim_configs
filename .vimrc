@@ -14,8 +14,14 @@ set autoindent
 set cindent
 set cinoptions={0,:0,g0,l1,t0,(0)}
 set autoread     
-"set ignorecase
+set ignorecase
 set showcmd
+set ts=4
+set expandtab
+set shiftwidth=4
+
+set smartindent
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=79
 
 set tags=./tags;
 
