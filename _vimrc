@@ -1,4 +1,4 @@
-map <F7> <Esc>:set nu<CR>
+map <F8> <Esc>:set nu<CR>
 map <C-F7> <Esc>:set nonu<CR>
 
 filetype indent on
@@ -17,10 +17,10 @@ set cursorline              "为光标所在行加下划线
 set number                  "显示行号
 set autoread                "文件在Vim之外修改过，自动重新读入
 
-set ignorecase              "检索时忽略大小写
-set fileencodings=utf-8,gbk "使用utf-8或gbk打开文件
-set hls                     "检索时高亮显示匹配项
-set helplang=cn             "帮助系统设置为中文
+set ignorecase              "检索时忽略大小�?
+set fileencodings=uft-8,gbk "使用utf-8或gbk打开文件
+set hls                     "检索时高亮显示匹配�?
+set helplang=cn             "帮助系统设置为中�?
 set foldmethod=syntax       "代码折叠
 set ruler
 set cindent
@@ -30,7 +30,7 @@ set showcmd
 "
 let &termencoding=&encoding
 
-"conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
+"conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签�?
 let mapleader = ','
 nnoremap <C-l> gt
 nnoremap <C-h> gT
@@ -38,19 +38,19 @@ nnoremap <leader>t : tabe<CR>"
 
 set tags=./tags;
 
-set nocompatible              " 去除VI一致性,必须要添加
-filetype off                  " 必须要添加
+set nocompatible              " 去除VI一致�?必须要添�?
+filetype off                  " 必须要添�?
 
 " 设置包括vundle和初始化相关的runtime path
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" 另一种选择, 指定一个vundle安装插件的路径
+set rtp+=$VIM/vimfiles/bundle/Vundle.vim/
+call vundle#begin('$VIM/vimfiles/bundle/')
+" 另一种选择, 指定一个vundle安装插件的路�?
 "call vundle#begin('~/some/path/here')
 
 " 让vundle管理插件版本,必须
 Plugin 'VundleVim/Vundle.vim'
 
-" 以下范例用来支持不同格式的插件安装.
+" 以下范例用来支持不同格式的插件安�?
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdtree'
 Plugin 'TagHighlight'
@@ -68,17 +68,17 @@ Plugin 'DoxygenToolkit.vim'
 Plugin 'wincent/command-t'
 " 你的所有插件需要在下面这行之前
 call vundle#end()            " 必须
-filetype plugin indent on    " 必须 加载vim自带和插件相应的语法和文件类型相关脚本
+filetype plugin indent on    " 必须 加载vim自带和插件相应的语法和文件类型相关脚�?
 " 忽视插件改变缩进,可以使用以下替代:
 "filetype plugin on
 "
-" 常用的命令
-" :PluginList       - 列出所有已配置的插件
-" :PluginInstall     - 安装插件,追加 `!` 用以更新或使用 :PluginUpdate
+" 常用的命�?
+" :PluginList       - 列出所有已配置的插�?
+" :PluginInstall     - 安装插件,追加 `!` 用以更新或使�?:PluginUpdate
 " :PluginSearch foo - 搜索 foo ; 追加 `!` 清除本地缓存
-" :PluginClean      - 清除未使用插件,需要确认; 追加 `!` 自动批准移除未使用插件
+" :PluginClean      - 清除未使用插�?需要确�? 追加 `!` 自动批准移除未使用插�?
 
-nnoremap <silent> <F9> :YRShow<CR> "打开剪贴板
+nnoremap <silent> <F9> :YRShow<CR> "打开剪贴�?
 nnoremap <silent> <F12> :A<CR>
 
 if has("autocmd")
@@ -88,12 +88,12 @@ endif
 
 "s：查找C代码符号
 "g：查找本定义
-"c：查找调用本函数的函数
-"t：查找本字符串
+"c：查找调用本函数的函�?
+"t：查找本字符�?
 "e：查找本egrep模式
 "f：查找本文件
-"i：查找包含本文件的文件
-"d：查找本函数调用的函数
+"i：查找包含本文件的文�?
+"d：查找本函数调用的函�?
 nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR> 	
 nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
 nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
