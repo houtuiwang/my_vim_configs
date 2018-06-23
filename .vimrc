@@ -1,6 +1,3 @@
-map <F7> <Esc>:set nu<CR>
-map <C-F7> <Esc>:set nonu<CR>
-
 filetype indent on
 syntax on
 colorscheme default
@@ -58,18 +55,24 @@ Plugin 'tpope/vim-commentary'
 Plugin 'honza/vim-snippets'
 Plugin 'majutsushi/tagbar'
 Plugin 'SirVer/ultisnips'
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'vim-airline/vim-airline'
 Plugin 'a.vim'
-Plugin 'taglist.vim'
 Plugin 'YankRing.vim'
 Plugin 'DoxygenToolkit.vim'
 Plugin 'Yggdroot/LeaderF'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'w0rp/ale'
-Plugin 'Shougo/echodoc.vim'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'mhinz/vim-signify'
+Plugin 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-indent'
+Plugin 'kana/vim-textobj-syntax'
+Plugin 'kana/vim-textobj-function', { 'for':['c', 'cpp', 'vim', 'java'] }
+Plugin 'sgur/vim-textobj-parameter'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'tpope/vim-unimpaired'
 " 你的所有插件需要在下面这行之前
 call vundle#end()            " 必须
 filetype plugin indent on    " 必须 加载vim自带和插件相应的语法和文件类型相关脚本
@@ -82,8 +85,8 @@ filetype plugin indent on    " 必须 加载vim自带和插件相应的语法和
 " :PluginSearch foo - 搜索 foo ; 追加 `!` 清除本地缓存
 " :PluginClean      - 清除未使用插件,需要确认; 追加 `!` 自动批准移除未使用插件
 
-nnoremap <silent> <F9> :YRShow<CR> "打开剪贴板
-nnoremap <silent> <F12> :A<CR>
+nnoremap <m-y> :YRShow<CR> "打开剪贴板
+nnoremap <m-a> :A<CR>
 
 if has("autocmd")
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -118,19 +121,12 @@ endif
     endfunction
     au BufEnter /* call LoadCscope()
 
-map <F4> :NERDTreeMirror<CR>
-map <F4> :NERDTreeToggle<CR>
+nmap <m-t> :NERDTreeMirror<CR>
+nmap <m-t> :NERDTreeToggle<CR>
 
-set guifont=PowerlineSymbols\ for\ Powerline
-set nocompatible
-set laststatus=2
-set t_Co=256
-let g:Powerline_symbols = 'fancy'
-let Powerline_symbols='compatible'
 
-set formatoptions=tcqro
-
-nmap <F3> :TagbarToggle<CR>
+" Tagbar
+nmap <m-c> :TagbarToggle<CR>
 
 " vim ALT key
 function! Terminal_MetaMode(mode)
@@ -186,10 +182,10 @@ let g:UltiSnipsEditSplit="vertical"
 
 " LeaderF
 let g:Lf_ShortcutF = '<m-f>'
-noremap <m-r> :LeaderfMru<cr>
-noremap <m-p> :LeaderfFunction!<cr>
-noremap <m-n> :LeaderfBuffer<cr>
-noremap <m-m> :LeaderfTag<cr>
+noremap <m-m> :LeaderfMru<cr>
+noremap <m-n> :LeaderfFunction!<cr>
+noremap <m-b> :LeaderfBuffer<cr>
+noremap <m-g> :LeaderfTag<cr>
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
@@ -223,8 +219,6 @@ let g:ycm_semantic_triggers =  {
            \ 'cs,lua,javascript': ['re!\w{2}'],
            \ }
 
-" echodoc
-set noshowmode
 
 " gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
@@ -254,20 +248,24 @@ let g:asyncrun_bell = 1
 
 " 设置 F10 打开/关闭 Quickfix 窗口
 nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
-nnoremap <silent> <F8> :AsyncRun gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
-nnoremap <silent> <F5> :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
+nnoremap <silent> <F9> :AsyncRun gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/a.out" <cr>
+nnoremap <silent> <F6> :AsyncRun -raw -cwd=$(VIM_FILEDIR) "$(VIM_FILEDIR)/a.out" <cr>
+let g:asyncrun_rootmarks = ['.svn', '.git', '.root', '_darcs', 'build.xml']
+nnoremap <silent> <F7> :AsyncRun -cwd=<root> make <cr>
 
+" airline
+let g:airline_powerline_fonts = 1  
 " ale
-let g:ale_linters_explicit = 1
-let g:ale_completion_delay = 500
-let g:ale_echo_delay = 20
-let g:ale_lint_delay = 500
 let g:ale_echo_msg_format = '[%linter%] %code: %%s'
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 let g:airline#extensions#ale#enabled = 1
+let g:ale_set_highlights = 0
+nmap sp <Plug>(ale_previous_wrap)
+nmap sn <Plug>(ale_next_wrap)
 
 let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
 let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
 let g:ale_c_cppcheck_options = ''
 let g:ale_cpp_cppcheck_options = ''
+
