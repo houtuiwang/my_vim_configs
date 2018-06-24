@@ -28,62 +28,41 @@ set showcmd
 let &termencoding=&encoding
 
 "conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
-let mapleader = ','
+let mapleader = ' '
 nnoremap <C-l> gt
 nnoremap <C-h> gT
 nnoremap <leader>t : tabe<CR>"
 
-set tags=./.tags;,.tags
-
-set nocompatible              " 去除VI一致性,必须要添加
-filetype off                  " 必须要添加
-
-" 设置包括vundle和初始化相关的runtime path
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" 另一种选择, 指定一个vundle安装插件的路径
-"call vundle#begin('~/some/path/here')
-
-" 让vundle管理插件版本,必须
-Plugin 'VundleVim/Vundle.vim'
-
+call plug#begin('~/.vim/plugged')
 " 以下范例用来支持不同格式的插件安装.
-Plugin 'Raimondi/delimitMate'
-Plugin 'scrooloose/nerdtree'
-Plugin 'TagHighlight'
-Plugin 'tpope/vim-commentary'
-Plugin 'honza/vim-snippets'
-Plugin 'majutsushi/tagbar'
-Plugin 'SirVer/ultisnips'
-Plugin 'vim-airline/vim-airline'
-Plugin 'a.vim'
-Plugin 'YankRing.vim'
-Plugin 'DoxygenToolkit.vim'
-Plugin 'Yggdroot/LeaderF'
-Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'skywind3000/asyncrun.vim'
-Plugin 'w0rp/ale'
-Plugin 'rdnetto/YCM-Generator'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'mhinz/vim-signify'
-Plugin 'kana/vim-textobj-user'
-Plugin 'kana/vim-textobj-indent'
-Plugin 'kana/vim-textobj-syntax'
-Plugin 'kana/vim-textobj-function', { 'for':['c', 'cpp', 'vim', 'java'] }
-Plugin 'sgur/vim-textobj-parameter'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'tpope/vim-unimpaired'
-" 你的所有插件需要在下面这行之前
-call vundle#end()            " 必须
-filetype plugin indent on    " 必须 加载vim自带和插件相应的语法和文件类型相关脚本
-" 忽视插件改变缩进,可以使用以下替代:
-"filetype plugin on
-"
-" 常用的命令
-" :PluginList       - 列出所有已配置的插件
-" :PluginInstall     - 安装插件,追加 `!` 用以更新或使用 :PluginUpdate
-" :PluginSearch foo - 搜索 foo ; 追加 `!` 清除本地缓存
-" :PluginClean      - 清除未使用插件,需要确认; 追加 `!` 自动批准移除未使用插件
+Plug 'Raimondi/delimitMate'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'vim-scripts/TagHighlight'
+Plug 'tpope/vim-commentary'
+Plug 'honza/vim-snippets'
+Plug 'majutsushi/tagbar'
+Plug 'SirVer/ultisnips'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-scripts/a.vim'
+Plug 'vim-scripts/YankRing.vim'
+Plug 'vim-scripts/DoxygenToolkit.vim'
+Plug 'Yggdroot/LeaderF'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/gutentags_plus'
+Plug 'skywind3000/vim-preview'
+Plug 'w0rp/ale'
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+Plug 'Valloric/YouCompleteMe'
+Plug 'mhinz/vim-signify'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-syntax'
+Plug 'kana/vim-textobj-function', { 'for':['c', 'cpp', 'vim', 'java'] }
+Plug 'sgur/vim-textobj-parameter'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'tpope/vim-unimpaired'
+call plug#end()
 
 nnoremap <m-y> :YRShow<CR> "打开剪贴板
 nnoremap <m-a> :A<CR>
@@ -93,6 +72,7 @@ au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 \| exe "normal g'\"" | endif
 endif
 
+" gtags-cscope
 "s：查找C代码符号
 "g：查找本定义
 "c：查找调用本函数的函数
@@ -101,29 +81,19 @@ endif
 "f：查找本文件
 "i：查找包含本文件的文件
 "d：查找本函数调用的函数
-nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR> 	
-nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-
-function! LoadCscope()
-    let db = findfile("cscope.out", ".;")
-if (!empty(db))
-    let path = strpart(db, 0, match(db, "/cscope.out$"))
-    set nocscopeverbose " suppress 'duplicate connection' error
-    exe "cs add " . db . " " . path
-    set cscopeverbose
-endif
-    endfunction
-    au BufEnter /* call LoadCscope()
+let g:gutentags_plus_nomap = 1
+noremap <silent> <c-\>s :GscopeFind s <C-R><C-W><cr>
+noremap <silent> <c-\>g :GscopeFind g <C-R><C-W><cr>
+noremap <silent> <c-\>c :GscopeFind c <C-R><C-W><cr>
+noremap <silent> <c-\>t :GscopeFind t <C-R><C-W><cr>
+noremap <silent> <c-\>e :GscopeFind e <C-R><C-W><cr>
+noremap <silent> <c-\>f :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
+noremap <silent> <c-\>i :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
+noremap <silent> <c-\>d :GscopeFind d <C-R><C-W><cr>
+noremap <silent> <c-\>a :GscopeFind a <C-R><C-W><cr>
 
 nmap <m-t> :NERDTreeMirror<CR>
 nmap <m-t> :NERDTreeToggle<CR>
-
 
 " Tagbar
 nmap <m-c> :TagbarToggle<CR>
@@ -198,7 +168,7 @@ let g:Lf_StlColorscheme = 'powerline'
 let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
 
 " YouCompleteMe
-let g:ycm_key_list_select_completion = ['<m-i>', '<Down>']
+let g:ycm_key_list_select_completion = ['<m-p>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<m-o>', '<Up>']
 let g:ycm_server_python_interpreter='/usr/bin/python3'
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
@@ -222,23 +192,29 @@ let g:ycm_semantic_triggers =  {
 
 " gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
-
 " 所生成的数据文件的名称
 let g:gutentags_ctags_tagfile = '.tags'
-
+" 同时开启 ctags 和 gtags 支持：
+let g:gutentags_modules = []
+if executable('ctags')
+	let g:gutentags_modules += ['ctags']
+endif
+if executable('gtags-cscope') && executable('gtags')
+	let g:gutentags_modules += ['gtags_cscope']
+endif
 " 将自动生成的 tags 文件全部放入 ~/.cache/tags 目录中，避免污染工程目录
 let s:vim_tags = expand('~/.cache/tags')
 let g:gutentags_cache_dir = s:vim_tags
-
 " 配置 ctags 的参数
 let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
 let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
 let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
-
 " 检测 ~/.cache/tags 不存在就新建
 if !isdirectory(s:vim_tags)
    silent! call mkdir(s:vim_tags, 'p')
 endif
+" 禁用 gutentags 自动加载 gtags 数据库的行为
+let g:gutentags_auto_add_gtags_cscope = 0
 
 " 自动打开 quickfix window ，高度为 6
 let g:asyncrun_open = 6
@@ -269,3 +245,13 @@ let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
 let g:ale_c_cppcheck_options = ''
 let g:ale_cpp_cppcheck_options = ''
 
+" signify
+set signcolumn=yes
+
+" preview
+autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
+autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
+
+" 用 Tab 键进行 delimitMate 的光标跳转（也就是说，输入左括号后使用 Tab 键就可跳转到 delimitMate 生成的右括号的右边，而无需 <S-TAB>），且不破坏 UltiSnips 的 Tab 键展开，同时禁用 delimitMate 自带的 <S-TAB>：
+autocmd VimEnter * imap <silent> <expr> <TAB> delimitMate#ShouldJump() ? delimitMate#JumpAny() : "\<C-r>=UltiSnips#ExpandSnippetOrJump()\<CR>"
+autocmd VimEnter * inoremap <S-TAB> <S-TAB>
