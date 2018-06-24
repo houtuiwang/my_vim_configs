@@ -255,3 +255,9 @@ autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
 " 用 Tab 键进行 delimitMate 的光标跳转（也就是说，输入左括号后使用 Tab 键就可跳转到 delimitMate 生成的右括号的右边，而无需 <S-TAB>），且不破坏 UltiSnips 的 Tab 键展开，同时禁用 delimitMate 自带的 <S-TAB>：
 autocmd VimEnter * imap <silent> <expr> <TAB> delimitMate#ShouldJump() ? delimitMate#JumpAny() : "\<C-r>=UltiSnips#ExpandSnippetOrJump()\<CR>"
 autocmd VimEnter * inoremap <S-TAB> <S-TAB>
+
+" mapping h,j,k,l in insert mode
+inoremap <C-H> <Left>
+inoremap <c-j> <down>
+inoremap <c-k> <up>
+inoremap <c-l> <right>
