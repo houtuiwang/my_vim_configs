@@ -195,3 +195,6 @@ alias bcompare='rm ~/.config/bcompare/registry.dat; /usr/bin/bcompare'
 [[ -s /home/bob/.autojump/etc/profile.d/autojump.sh ]] && source /home/bob/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
 
+export PATH=/mnt/hgfs/source_code/work/bitbake/bin:$PATH
+export PYTHONPATH=/mnt/hgfs/source_code/work/bitbake/lib:$PYTHONPATH
+export REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo/'
