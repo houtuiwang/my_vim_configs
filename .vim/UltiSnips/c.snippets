@@ -82,7 +82,7 @@ printf("${1:%s}"${2});
 endsnippet
 #file handling
 snippet fopen "fopen" b
-${1:fptr} = fopen(${2:fname}, ${3:"w"});
+${1:fptr} = fopen(${2:fname}, "${3:w}");
 if ($1 == NULL) {
 	printf(${4:"Error in opening file!"});
 	exit(1);
