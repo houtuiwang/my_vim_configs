@@ -192,7 +192,7 @@ alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 alias bcompare='rm ~/.config/bcompare/registry.dat; /usr/bin/bcompare'
 
-[[ -s /home/bob/.autojump/etc/profile.d/autojump.sh ]] && source /home/bob/.autojump/etc/profile.d/autojump.sh
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
 
 export REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo/'
