@@ -179,8 +179,7 @@ zstyle ':completion:*:*sh:*:' tag-order files
 alias cls='clear'
 alias vi='vim'
 alias javac="javac -J-Dfile.encoding=utf8"
-alias -s html=mate   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开
-alias -s py=vi       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
+alias -s html=mate   
 alias -s js=vi
 alias -s c=vi
 alias -s cpp=vi
@@ -192,7 +191,7 @@ alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 alias bcompare='rm ~/.config/bcompare/registry.dat; /usr/bin/bcompare'
 
-[[ -s /home/bob/.autojump/etc/profile.d/autojump.sh ]] && source /home/bob/.autojump/etc/profile.d/autojump.sh
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
 
 export REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo/'
