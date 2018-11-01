@@ -179,7 +179,6 @@ zstyle ':completion:*:*sh:*:' tag-order files
 alias cls='clear'
 alias vi='vim'
 alias javac="javac -J-Dfile.encoding=utf8"
-alias -s html=mate   # 在命令行直接输入后缀为 html 的文件名，会在 TextMate 中打开
 alias -s js=vi
 alias -s c=vi
 alias -s cpp=vi
