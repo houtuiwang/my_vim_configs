@@ -12,13 +12,14 @@ set shiftwidth=4
 set tabstop=4
 set cursorline              "为光标所在行加下划线
 set number                  "显示行号
+set rnu
 set autoread                "文件在Vim之外修改过，自动重新读入
 
 set ignorecase              "检索时忽略大小写
 set fileencodings=utf-8,gbk "使用utf-8或gbk打开文件
 set hls                     "检索时高亮显示匹配项
 set helplang=cn             "帮助系统设置为中文
-set foldmethod=syntax       "代码折叠
+" set foldmethod=syntax       "代码折叠
 set ruler
 set cindent
 set history=1000
@@ -43,7 +44,6 @@ Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'SirVer/ultisnips'
 Plug 'vim-airline/vim-airline'
-" Plug 'vim-scripts/a.vim'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'Yggdroot/LeaderF'
@@ -55,13 +55,9 @@ Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'Valloric/YouCompleteMe'
 Plug 'w0rp/ale'
 Plug 'mhinz/vim-signify'
-" Plug 'kana/vim-textobj-user'
-" Plug 'kana/vim-textobj-indent'
-" Plug 'kana/vim-textobj-syntax'
-" Plug 'kana/vim-textobj-function', { 'for':['c', 'cpp', 'vim', 'java'] }
-" Plug 'sgur/vim-textobj-parameter'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-unimpaired'
+Plug 'WolfgangMehner/bash-support'
 call plug#end()
 
 nnoremap <m-y> :YRShow<CR> "打开剪贴板
@@ -168,9 +164,8 @@ let g:Lf_StlColorscheme = 'powerline'
 let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
 
 " YouCompleteMe
-let g:ycm_key_list_select_completion = ['<m-p>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<m-o>', '<Up>']
-let g:ycm_server_python_interpreter='/usr/bin/python3'
+let g:ycm_key_list_select_completion = ['<m-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<m-p>', '<Up>']
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 
 let g:ycm_add_preview_to_completeopt = 0
