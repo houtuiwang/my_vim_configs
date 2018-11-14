@@ -7,7 +7,7 @@ set ai                      "自动缩进
 set bs=2                    "在insert模式下用退格键删除
 set showmatch               "代码匹配
 set laststatus=2            "总是显示状态行
-"set expandtab               "以下三个配置配合使用，设置tab和缩进空格数
+set expandtab               "以下三个配置配合使用，设置tab和缩进空格数
 set shiftwidth=4
 set tabstop=4
 set cursorline              "为光标所在行加下划线
