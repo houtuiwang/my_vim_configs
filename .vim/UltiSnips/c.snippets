@@ -80,6 +80,12 @@ endsnippet
 snippet prn
 printf("${1:%s}"${2});
 endsnippet
+snippet prkl
+printk("enter func %s, at line %d \n", __func__, __LINE__);
+endsnippet
+snippet prfl
+printf("enter func %s, at line %d \n", __func__, __LINE__);
+endsnippet
 #file handling
 snippet fopen "fopen" b
 ${1:fptr} = fopen(${2:fname}, "${3:w}");
