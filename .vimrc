@@ -57,7 +57,6 @@ Plug 'w0rp/ale'
 Plug 'mhinz/vim-signify'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-unimpaired'
-Plug 'WolfgangMehner/bash-support'
 call plug#end()
 
 nnoremap <m-y> :YRShow<CR> "打开剪贴板
