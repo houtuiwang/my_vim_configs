@@ -1,7 +1,3 @@
-filetype indent on
-syntax on
-colorscheme default
-
 "common conf {{             通用配置
 set ai                      "自动缩进
 set bs=2                    "在insert模式下用退格键删除
@@ -24,9 +20,12 @@ set ruler
 set cindent
 set history=1000
 set showcmd
+filetype indent on
+syntax on
+colorscheme default
+let &termencoding=&encoding
 "}}
 "
-let &termencoding=&encoding
 
 "conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
 let mapleader = ' '
