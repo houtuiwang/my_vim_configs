@@ -151,6 +151,7 @@ bindkey '\ev' deer
 
 alias ll='ls -lha'
 alias gr='grep -nr'
+alias gri='grep -nir'
 
 
 # options
@@ -189,7 +190,7 @@ alias -s gz='tar -xzvf'
 alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
-alias bcompare='rm ~/.config/bcompare/registry.dat; /usr/bin/bcompare'
+# alias bcompare='rm ~/.config/bcompare/registry.dat; /usr/bin/bcompare'
 
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
