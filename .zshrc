@@ -120,6 +120,7 @@ ZSH_HIGHLIGHT_STYLES[assign]=none
 
 # enable syntax highlighting
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle wting/autojump
 
 antigen apply
 
