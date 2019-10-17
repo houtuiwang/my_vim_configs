@@ -14,19 +14,6 @@ set ignorecase              "检索时忽略大小写
 set fileencodings=utf-8,gbk "使用utf-8或gbk打开文件
 set hls                     "检索时高亮显示匹配项
 set helplang=cn             "帮助系统设置为中文
-<<<<<<< HEAD
-" set foldmethod=syntax       "代码折叠
-set ruler
-set cindent
-set history=1000
-set showcmd
-filetype indent on
-syntax on
-colorscheme default
-let &termencoding=&encoding
-"}}
-"
-=======
 set ruler                   "设置标尺
 set cindent                 "c语言分格对齐
 set history=1000            "命令历史纪录1000行
@@ -36,7 +23,6 @@ syntax on                   "语法支持
 colorscheme default         "语法高亮主题使用默认
 let &termencoding=&encoding "终端编码使用和encoding一样的编码
 "}}
->>>>>>> 0b4078b648b38f19599162c81f828febd3af40f1
 
 "conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
 let mapleader = ' '
