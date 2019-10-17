@@ -8,13 +8,13 @@ set shiftwidth=4
 set tabstop=4
 set cursorline              "为光标所在行加下划线
 set number                  "显示行号
-set rnu
+set rnu                     "显示相对行号
 set autoread                "文件在Vim之外修改过，自动重新读入
-
 set ignorecase              "检索时忽略大小写
 set fileencodings=utf-8,gbk "使用utf-8或gbk打开文件
 set hls                     "检索时高亮显示匹配项
 set helplang=cn             "帮助系统设置为中文
+<<<<<<< HEAD
 " set foldmethod=syntax       "代码折叠
 set ruler
 set cindent
@@ -26,12 +26,23 @@ colorscheme default
 let &termencoding=&encoding
 "}}
 "
+=======
+set ruler                   "设置标尺
+set cindent                 "c语言分格对齐
+set history=1000            "命令历史纪录1000行
+set showcmd                 "显示命令
+filetype indent on          "根据不同文件类型对齐
+syntax on                   "语法支持
+colorscheme default         "语法高亮主题使用默认
+let &termencoding=&encoding "终端编码使用和encoding一样的编码
+"}}
+>>>>>>> 0b4078b648b38f19599162c81f828febd3af40f1
 
 "conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
 let mapleader = ' '
 nnoremap <C-l> gt
 nnoremap <C-h> gT
-nnoremap <leader>t : tabe<CR>"
+nnoremap <leader>t :tabe<CR>"
 
 call plug#begin('~/.vim/plugged')
 " 以下范例用来支持不同格式的插件安装.
@@ -59,8 +70,8 @@ Plug 'tpope/vim-unimpaired'
 call plug#end()
 
 nnoremap <m-y> :YRShow<CR> "打开剪贴板
-nnoremap <m-a> :A<CR>
 
+"打开文件自动跳到上次查看行
 if has("autocmd")
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 \| exe "normal g'\"" | endif
@@ -162,8 +173,6 @@ let g:Lf_StlColorscheme = 'powerline'
 let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
 
 " YouCompleteMe
-let g:ycm_key_list_select_completion = ['<m-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<m-p>', '<Up>']
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 
 let g:ycm_add_preview_to_completeopt = 0
