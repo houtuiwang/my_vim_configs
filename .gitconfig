@@ -1,0 +1,41 @@
+[user]
+    name = Bob.Yang
+    email = Xiaobo.Yang@Honeywell.com
+[push]
+    default = simple
+[credential]
+    helper = store
+[url "https://git.yoctoproject.org/git/"]
+    insteadOf = git://git.yoctoproject.org/
+
+[color]
+    ui = auto
+[core]
+    editor = vim
+    pager = 
+[url "http://github.com"]
+    insteadOf = git://github.com
+
+[alias]
+    a = add
+    amend = commit --amend
+    c = commit
+    ca = commit --amend
+    ci = commit -a
+    cm = commit -m
+    co = checkout
+    d = diff
+    dc = diff --changed
+    ds = diff --staged
+    f = fetch
+    loll = log --graph --decorate --pretty=oneline --abbrev-commit
+    m = merge
+    one = log --pretty=oneline
+    outstanding = rebase -i @{u}
+    s = status
+    unpushed = log @{u}
+    wc = whatchanged
+    wip = rebase -i @{u}
+    zap = fetch -p
+[url "ssh://git@bitbucket-na.honeywell.com:7999/bitbucket/elk/iot-imx-linux-kernel.git"]
+	insteadOf = ssh://git@bitbucket.honeywell.com:7999/elk/iot-imx-linux-kernel.git
