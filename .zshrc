@@ -234,3 +234,14 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+g() {
+    grep -Ir \
+        --exclude-dir=.git \
+        --exclude-dir='build*' \
+        --include='*.bb*' \
+        --include='*.inc*' \
+        --include='*.conf*' \
+        --include='*.py*' \
+        "$@"
+    }
