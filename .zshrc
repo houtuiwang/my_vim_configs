@@ -120,7 +120,6 @@ ZSH_HIGHLIGHT_STYLES[assign]=none
 
 # enable syntax highlighting
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle wting/autojump
 
 antigen apply
 
@@ -206,9 +205,9 @@ if [ "$PS1" ]; then
     fi
   else
     if [ "`id -u`" -eq 0 ]; then
-      PS1='# '
+      PS1='%m:`basename ${PWD}`# '
     else
-      PS1='$ '
+      PS1='%m:`basename ${PWD}`$ '
     fi
   fi
 fi
@@ -245,3 +244,4 @@ g() {
         --include='*.py*' \
         "$@"
     }
+
