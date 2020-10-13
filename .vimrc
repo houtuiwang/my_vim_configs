@@ -260,3 +260,10 @@ let g:airline_theme='one'
 colorscheme one
 " set background=dark " for the dark version
 set background=light " for the light version
+
+
+set nobackup
+set undodir=~/.vim/undodir
+if !isdirectory(&undodir)
+    call mkdir(&undodir, 'p', 0700)
+endif
