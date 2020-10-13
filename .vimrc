@@ -8,24 +8,20 @@ set shiftwidth=4
 set tabstop=4
 set cursorline              "为光标所在行加下划线
 set number                  "显示行号
-set rnu
+set rnu                     "显示相对行号
 set autoread                "文件在Vim之外修改过，自动重新读入
-
 set ignorecase              "检索时忽略大小写
-set smartcase               "如果有一个大写字母，则切换到大小写敏感查找
 set fileencodings=utf-8,gbk "使用utf-8或gbk打开文件
 set hls                     "检索时高亮显示匹配项
 set helplang=cn             "帮助系统设置为中文
-" set foldmethod=syntax       "代码折叠
-set ruler
-set cindent
-set history=1000
-set showcmd
-filetype indent on
-syntax on
-let &termencoding=&encoding
+set ruler                   "设置标尺
+set cindent                 "c语言分格对齐
+set history=1000            "命令历史纪录1000行
+set showcmd                 "显示命令
+filetype indent on          "根据不同文件类型对齐
+syntax on                   "语法支持
+let &termencoding=&encoding "终端编码使用和encoding一样的编码
 "}}
-"
 
 "conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
 let mapleader = ' '
@@ -65,6 +61,7 @@ nnoremap <m-y> :YRShow<CR> "打开剪贴板
 nnoremap <m-q> :wq<CR>
 nnoremap <m-w> :w<CR>
 
+"打开文件自动跳到上次查看行
 if has("autocmd")
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 \| exe "normal g'\"" | endif
