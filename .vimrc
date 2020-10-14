@@ -11,6 +11,7 @@ set number                  "显示行号
 set rnu                     "显示相对行号
 set autoread                "文件在Vim之外修改过，自动重新读入
 set ignorecase              "检索时忽略大小写
+set smartcase               "如果有一个大写字母，则切换到大小写敏感查找
 set fileencodings=utf-8,gbk "使用utf-8或gbk打开文件
 set hls                     "检索时高亮显示匹配项
 set helplang=cn             "帮助系统设置为中文
