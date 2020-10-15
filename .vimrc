@@ -269,3 +269,5 @@ set undodir=~/.vim/undodir
 if !isdirectory(&undodir)
     call mkdir(&undodir, 'p', 0700)
 endif
+
+set scrolloff=1
