@@ -262,7 +262,6 @@ colorscheme one
 " set background=dark " for the dark version
 set background=light " for the light version
 
-
 set nobackup
 set undofile
 set undodir=~/.vim/undodir
@@ -271,3 +270,6 @@ if !isdirectory(&undodir)
 endif
 
 set scrolloff=1
+
+" 停止搜索高亮的键映射
+nnoremap <silent> <m-2>      :nohlsearch<CR>
