@@ -56,6 +56,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'kergoth/vim-bitbake'
 Plug 'rakr/vim-one'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 call plug#end()
 
 nnoremap <m-y> :YRShow<CR> "打开剪贴板
@@ -273,3 +275,10 @@ set scrolloff=1
 
 " 停止搜索高亮的键映射
 nnoremap <silent> <m-2>      :nohlsearch<CR>
+
+
+" 用于 quickfix、标签和文件跳转的键映射
+nmap <F11>   :cn<CR>
+nmap <F12>   :cp<CR>
+nmap <M-F11> :tn<CR>
+nmap <M-F12> :tp<CR>
