@@ -242,6 +242,7 @@ g() {
         --include='*.inc*' \
         --include='*.conf*' \
         --include='*.py*' \
+        --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox} \
         "$@"
     }
 
