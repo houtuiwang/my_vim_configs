@@ -58,6 +58,7 @@ Plug 'kergoth/vim-bitbake'
 Plug 'rakr/vim-one'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'danro/rename.vim'
 call plug#end()
 
 nnoremap <m-y> :YRShow<CR> "打开剪贴板
@@ -182,10 +183,28 @@ set completeopt=menu,menuone
 noremap <m-z> <NOP>
 
 let g:ycm_semantic_triggers =  {
-           \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-           \ 'cs,lua,javascript': ['re!\w{2}'],
+           \ 'c,cpp,python,vim,sh,zsh': ['re!\w{2}'],
            \ }
 
+let g:ycm_use_clangd = 1
+
+nnoremap <Leader>fi :YcmCompleter FixIt<CR>
+nnoremap <Leader>gt :YcmCompleter GoTo<CR>
+nnoremap <Leader>gd :YcmCompleter GoToDefinition<CR>
+nnoremap <Leader>gh :YcmCompleter GoToDeclaration<CR>
+nnoremap <Leader>gr :YcmCompleter GoToReferences<CR>
+
+let g:ycm_auto_hover = ''
+let g:ycm_complete_in_comments = 1
+let g:ycm_filetype_whitelist = {
+            \ 'c': 1,
+            \ 'cpp': 1,
+            \ 'python': 1,
+            \ 'vim': 1,
+            \ 'sh': 1,
+            \ 'zsh': 1,
+                                          \ }
+let g:ycm_goto_buffer_command = 'split-or-existing-window'
 
 " gutentags 搜索工程目录的标志，碰到这些文件/目录名就停止向上一级目录递归
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
@@ -275,7 +294,6 @@ set scrolloff=1
 
 " 停止搜索高亮的键映射
 nnoremap <silent> <m-2>      :nohlsearch<CR>
-
 
 " 用于 quickfix、标签和文件跳转的键映射
 nmap <F11>   :cn<CR>
