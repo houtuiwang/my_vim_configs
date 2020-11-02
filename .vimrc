@@ -59,6 +59,8 @@ Plug 'rakr/vim-one'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'danro/rename.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'mg979/vim-visual-multi'
 call plug#end()
 
 nnoremap <m-y> :YRShow<CR> "打开剪贴板
@@ -76,20 +78,15 @@ endif
 "g：查找本定义
 "c：查找调用本函数的函数
 "t：查找本字符串
-"e：查找本egrep模式
 "f：查找本文件
 "i：查找包含本文件的文件
-"d：查找本函数调用的函数
 let g:gutentags_plus_nomap = 1
 noremap <silent> <c-\>s :GscopeFind s <C-R><C-W><cr>
 noremap <silent> <c-\>g :GscopeFind g <C-R><C-W><cr>
 noremap <silent> <c-\>c :GscopeFind c <C-R><C-W><cr>
 noremap <silent> <c-\>t :GscopeFind t <C-R><C-W><cr>
-noremap <silent> <c-\>e :GscopeFind e <C-R><C-W><cr>
 noremap <silent> <c-\>f :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
 noremap <silent> <c-\>i :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
-noremap <silent> <c-\>d :GscopeFind d <C-R><C-W><cr>
-noremap <silent> <c-\>a :GscopeFind a <C-R><C-W><cr>
 
 nmap <m-t> :NERDTreeMirror<CR>
 nmap <m-t> :NERDTreeToggle<CR>
@@ -190,9 +187,6 @@ let g:ycm_use_clangd = 1
 
 nnoremap <Leader>fi :YcmCompleter FixIt<CR>
 nnoremap <Leader>gt :YcmCompleter GoTo<CR>
-nnoremap <Leader>gd :YcmCompleter GoToDefinition<CR>
-nnoremap <Leader>gh :YcmCompleter GoToDeclaration<CR>
-nnoremap <Leader>gr :YcmCompleter GoToReferences<CR>
 
 let g:ycm_auto_hover = ''
 let g:ycm_complete_in_comments = 1
