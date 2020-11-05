@@ -58,14 +58,22 @@ Plug 'kergoth/vim-bitbake'
 Plug 'rakr/vim-one'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'danro/rename.vim'
+Plug 'qpkorr/vim-renamer'
 Plug 'tpope/vim-fugitive'
 Plug 'mg979/vim-visual-multi'
+Plug 'python-mode/python-mode'
 call plug#end()
 
 nnoremap <m-y> :YRShow<CR> "打开剪贴板
 nnoremap <m-q> :wq<CR>
 nnoremap <m-w> :w<CR>
+nnoremap <m-v> :vert term<CR>
+nnoremap <m-e> :term<CR>
+
+nnoremap <m-3> <C-W>w
+inoremap <m-3> <C-O><C-W>w
+nnoremap <m-4> <C-W>W
+inoremap <m-4> <C-O><C-W>W
 
 "打开文件自动跳到上次查看行
 if has("autocmd")
@@ -294,3 +302,5 @@ nmap <F11>   :cn<CR>
 nmap <F12>   :cp<CR>
 nmap <M-F11> :tn<CR>
 nmap <M-F12> :tp<CR>
+
+let g:pymode_rope = 0
