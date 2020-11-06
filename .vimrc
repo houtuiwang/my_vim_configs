@@ -62,18 +62,21 @@ Plug 'qpkorr/vim-renamer'
 Plug 'tpope/vim-fugitive'
 Plug 'mg979/vim-visual-multi'
 Plug 'python-mode/python-mode'
+Plug 'uguu-org/vim-matrix-screensaver'
 call plug#end()
 
 nnoremap <m-y> :YRShow<CR> "打开剪贴板
-nnoremap <m-q> :wq<CR>
 nnoremap <m-w> :w<CR>
+nnoremap <m-q> :q<CR>
 nnoremap <m-v> :vert term<CR>
 nnoremap <m-e> :term<CR>
 
-nnoremap <m-3> <C-W>w
-inoremap <m-3> <C-O><C-W>w
-nnoremap <m-4> <C-W>W
-inoremap <m-4> <C-O><C-W>W
+nnoremap <m-4> <C-W>w
+inoremap <m-4> <C-O><C-W>w
+nnoremap <m-3> <C-W>W
+inoremap <m-3> <C-O><C-W>W
+nnoremap <m-1> <C-W>q
+nnoremap <m-5> <C-W>=
 
 "打开文件自动跳到上次查看行
 if has("autocmd")
@@ -285,7 +288,6 @@ colorscheme one
 " set background=dark " for the dark version
 set background=light " for the light version
 
-set nobackup
 set undofile
 set undodir=~/.vim/undodir
 if !isdirectory(&undodir)
