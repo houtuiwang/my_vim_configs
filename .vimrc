@@ -306,3 +306,8 @@ nmap <M-F11> :tn<CR>
 nmap <M-F12> :tp<CR>
 
 let g:pymode_rope = 0
+
+aug QFClose
+    au!
+    au WinEnter *  if winnr('$') == 1 && &buftype == "quickfix"|q|endif
+aug END
