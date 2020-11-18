@@ -68,15 +68,15 @@ call plug#end()
 nnoremap <m-y> :YRShow<CR> "打开剪贴板
 nnoremap <m-w> :w<CR>
 nnoremap <m-q> :q<CR>
-nnoremap <m-v> :vert term<CR>
 nnoremap <m-e> :term<CR>
 
+nnoremap <m-1> <C-W>q
 nnoremap <m-4> <C-W>w
 inoremap <m-4> <C-O><C-W>w
 nnoremap <m-3> <C-W>W
 inoremap <m-3> <C-O><C-W>W
-nnoremap <m-1> <C-W>q
 nnoremap <m-5> <C-W>=
+nnoremap <m-v> <C-W>v
 
 "打开文件自动跳到上次查看行
 if has("autocmd")
