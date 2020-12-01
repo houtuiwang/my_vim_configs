@@ -1,4 +1,5 @@
 # Antigen: https://github.com/zsh-users/antigen
+
 ANTIGEN="$HOME/.local/bin/antigen.zsh"
 
 # Install antigen.zsh if not exist
@@ -141,6 +142,7 @@ bindkey '\eK' end-of-line
 
 bindkey -s '\eo' 'cd ..\n'
 bindkey -s '\e;' 'll\n'
+bindkey -s '\ep' 'pwd\n'
 
 bindkey '\e[1;3D' backward-word
 bindkey '\e[1;3C' forward-word
