@@ -311,3 +311,6 @@ aug QFClose
     au!
     au WinEnter *  if winnr('$') == 1 && &buftype == "quickfix"|q|endif
 aug END
+
+let &t_TI=''
+let &t_TE=''
