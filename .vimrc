@@ -59,10 +59,10 @@ Plug 'rakr/vim-one'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'qpkorr/vim-renamer'
-Plug 'tpope/vim-fugitive'
 Plug 'mg979/vim-visual-multi'
 Plug 'python-mode/python-mode'
 Plug 'uguu-org/vim-matrix-screensaver'
+Plug 'tomasiser/vim-code-dark'
 call plug#end()
 
 nnoremap <m-y> :YRShow<CR> "打开剪贴板
@@ -283,10 +283,13 @@ inoremap <c-j> <down>
 inoremap <c-k> <up>
 inoremap <c-l> <right>
 
-let g:airline_theme='one'
-colorscheme one
+" let g:airline_theme='one'
+" colorscheme one
 " set background=dark " for the dark version
-set background=light " for the light version
+" set background=light " for the light version
+
+colorscheme codedark
+let g:airline_theme = 'codedark'
 
 set undofile
 set undodir=~/.vim/undodir
