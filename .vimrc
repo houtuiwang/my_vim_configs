@@ -283,13 +283,13 @@ inoremap <c-j> <down>
 inoremap <c-k> <up>
 inoremap <c-l> <right>
 
-" let g:airline_theme='one'
-" colorscheme one
+let g:airline_theme='one'
+colorscheme one
 " set background=dark " for the dark version
-" set background=light " for the light version
+set background=light " for the light version
 
-colorscheme codedark
-let g:airline_theme = 'codedark'
+" colorscheme codedark
+" let g:airline_theme = 'codedark'
 
 set undofile
 set undodir=~/.vim/undodir
