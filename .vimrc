@@ -47,8 +47,8 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'skywind3000/gutentags_plus'
 Plug 'skywind3000/vim-preview'
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-Plug 'Valloric/YouCompleteMe'
+" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+" Plug 'Valloric/YouCompleteMe'
 Plug 'w0rp/ale'
 Plug 'mhinz/vim-signify'
 Plug 'octol/vim-cpp-enhanced-highlight'
